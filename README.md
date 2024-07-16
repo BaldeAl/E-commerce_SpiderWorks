@@ -19,7 +19,7 @@ ajouter un bouton « Ajouter au panier ».
 ### 6. Ajouter l’authentification. Lorsqu’on insère un panier en base de données, si l’utilisateur s’est identifié 
 alors on enregistre son id dans le champ « user_id » de la table « panier », sinon l’ignorer et, dans ce 
 cas, le panier est anonyme (car le champ user_id est nullable).
-Les models à créer :
+## Les models à créer :
 Produit (id, nom (String), descrpition (text), prix (Decimal, 8, 2), stock (Integer), plateforme_id)
 Plateforme (id, nom (String))
 Panier (id, montant (Decimal, 8, 2), created_at, updated_at, user_id)
