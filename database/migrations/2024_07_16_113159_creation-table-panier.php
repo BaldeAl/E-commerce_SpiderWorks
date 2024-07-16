@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('panier', function (Blueprint $table) {
             $table->id();
-            $table->float('montant');
+            $table->decimal('montant', 8, 2);
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
