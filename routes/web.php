@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProduitContoller;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
@@ -13,3 +14,6 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 require __DIR__.'/auth.php';
+
+//controller route
+Route::get('/produits', [ProduitContoller::class,'listProduits'])->name('produits.get');
