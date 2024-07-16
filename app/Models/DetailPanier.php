@@ -10,6 +10,7 @@ class DetailPanier extends Model
 {
     use HasFactory;
 
+    protected $table = "detail_panier";
     protected $fillable = [
         'id',
         'panier_id',

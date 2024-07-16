@@ -10,6 +10,7 @@ class Panier extends Model
 {
     use HasFactory;
 
+    protected $table = "panier";
     protected $fillable = [
         'id',
         'montant',
@@ -21,6 +22,10 @@ class Panier extends Model
     public function user() :BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+     public function details()
+    {
+        return $this->hasMany(DetailPanier::class);
     }
 
 }
