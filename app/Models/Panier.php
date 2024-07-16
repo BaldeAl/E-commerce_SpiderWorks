@@ -16,6 +16,8 @@ class Panier extends Model
         'user_id'
     ];
 
+    public $timestamps = true;
+
     public function user() :BelongsTo
     {
         return $this->belongsTo(User::class);
