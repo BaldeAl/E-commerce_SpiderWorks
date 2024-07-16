@@ -13,8 +13,7 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::view('accueil', './views/accueil')->name('accueil');
-Route::get('/produits', [ProduitsController::class, 'listeProduits'])->name('produits');
+// notes paraRoute::view('accueil', './views/accueil')->name('accueil');
 
 Route::get('/accueil', function () {
     return view('components.accueil');
