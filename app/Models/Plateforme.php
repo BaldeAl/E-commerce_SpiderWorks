@@ -13,5 +13,6 @@ class Plateforme extends Model
         'id',
         'nom'
     ];
-    
+      public $timestamps = false;
+
 }

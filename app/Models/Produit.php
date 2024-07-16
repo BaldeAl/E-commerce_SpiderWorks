@@ -18,6 +18,7 @@ class Produit extends Model
         'stock',
         'pateforme_id'
     ];
+    public $timestamps = false;
 
     public function plateforme() :BelongsTo
     {

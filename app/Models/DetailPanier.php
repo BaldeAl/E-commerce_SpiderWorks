@@ -14,8 +14,10 @@ class DetailPanier extends Model
         'id',
         'panier_id',
         'produit_id',
-        'qte-com'
+        'qte_com'
     ];
+      public $timestamps = false;
+
 
     public function panier(): BelongsTo
     {
