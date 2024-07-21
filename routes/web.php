@@ -17,3 +17,5 @@ require __DIR__.'/auth.php';
 
 //controller route
 Route::get('/produits', [ProduitContoller::class,'listProduits'])->name('produits.get');
+
+Route::get('/details_produit/{id}', [ProduitContoller::class,'detailsProduit'])->name('produits.details');

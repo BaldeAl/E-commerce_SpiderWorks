@@ -16,5 +16,10 @@ class ProduitContoller extends Controller
         return view('produits.list_produits',['produits'=>$produits]);
         
     }
+
+    public function detailsProduit($id){
+        $produit = Produit::find($id);
+        return view('produits.details_produit',['produit'=>$produit]);
+    }
         
 }
