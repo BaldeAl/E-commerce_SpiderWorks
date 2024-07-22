@@ -4,7 +4,7 @@
     @if($panier && $panier->details->count() > 0)
     <ul class="list-group mb-4">
         @foreach($panier->details as $detail)
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li class="list-group-item d-flex justify-content-between align-items-center card">
             {{ $detail->produit->nom }} - {{ $detail->produit->prix }}€ x {{ $detail->qte_com }} <div>
                 <form action="{{ route('panier.details.update', $detail->id) }}" method="POST" class="d-inline">
                     @csrf
