@@ -37,7 +37,7 @@ class PanierController extends Controller
         $panier->montant += $produit->prix * $request->qte_com;
         $panier->save();
 
-        return redirect()->route('acceuil.test')->with('success', 'Produit ajouté au panier');
+        return redirect()->route('produits.get')->with('success', 'Produit ajouté au panier');
     }
 
     public function afficherPanier()

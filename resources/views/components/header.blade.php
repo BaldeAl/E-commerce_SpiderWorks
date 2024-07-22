@@ -20,24 +20,57 @@
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li><a href="index.html">Acceuil</a></li>
-                          <li><a href="shop.html" class="active">Nos Produits</a></li>
+                          <li><a href="{{url('/produits')}}">Acceuil</a></li>
+                          <li><a href="{{url('/produits')}}" class="active">Nos Produits</a></li>
+                          @if(!Auth::check())
                           <li><a href="{{url('/login')}} ">Log In</a></li>
                           <li><a href="{{url('/register')}} ">Sign In</a></li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="{{ route('panier.afficher') }}">
-                                  Panier
+                          @endif
+
+                          <li>
+                              <a href="{{ route('panier.afficher') }}">
+                                  <i class="fa fa-shopping-bag"></i> Cart
                                   <span class="badge bg-secondary">
                                       {{
-                                    Auth::check()
-                                    ? \App\Models\Panier::where('user_id', Auth::id())->first()->details->sum('qte_com')
-                                    : (\App\Models\Panier::find(Session::get('panier_id')) ? \App\Models\Panier::find(Session::get('panier_id'))->details->sum('qte_com') : 0)
-                                }}
+                                        Auth::check()
+                                        ? (\App\Models\Panier::where('user_id', Auth::id())->first() ? \App\Models\Panier::where('user_id', Auth::id())->first()->details->sum('qte_com') : 0)
+                                        : (\App\Models\Panier::find(Session::get('panier_id')) ? \App\Models\Panier::find(Session::get('panier_id'))->details->sum('qte_com') : 0)
+                                    }}
+
                                   </span>
                               </a>
 
+
+
                           </li>
+
                       </ul>
+                      @if (Auth::check())
+                      <ul class="nav">
+
+                          <li>
+
+                              <a href="{{route('profile')}}">
+                                  {{ auth()->user()->name }} {{ __('Profile') }}
+                              </a>
+                          </li>
+
+                          <li>
+                              <form method="POST" action="{{ route('logout') }}">
+                                  @csrf
+                                  <button type="submit"><a>{{ __('Log Out') }}</a> </button>
+                              </form>
+
+                          </li>
+
+
+
+
+                      </ul>
+                      @endif
+
+
+
                       <a class='menu-trigger'>
                           <span>Menu</span>
                       </a>

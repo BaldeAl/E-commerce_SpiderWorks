@@ -6,13 +6,17 @@ use App\Http\Controllers\PanierController;
 
 Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+
 
 Route::get('/accueil', function () {
     $produits = App\Models\Produit::all();
@@ -27,6 +31,9 @@ Route::delete('/paniers/details/{detail}', [PanierController::class, 'supprimerD
 
 
 Route::get('/produits', [ProduitContoller::class,'listProduits'])->name('produits.get');
+Route::get('/', [ProduitContoller::class,'listProduits'])
+->middleware(['auth', 'verified'])
+->name('dashboard');
 
 Route::get('/details_produit/{id}', [ProduitContoller::class,'detailsProduit'])->name('produits.details');
 
