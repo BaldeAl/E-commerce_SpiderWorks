@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProduitContoller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PanierController;
 
@@ -23,4 +24,10 @@ Route::post('/paniers/ajouter/{produit}', [PanierController::class, 'ajouterAuPa
 Route::get('/paniers', [PanierController::class, 'afficherPanier'])->name('panier.afficher');
 Route::put('/paniers/details/{detail}', [PanierController::class, 'mettreAJourDetailPanier'])->name('panier.details.update');
 Route::delete('/paniers/details/{detail}', [PanierController::class, 'supprimerDetailPanier'])->name('panier.details.destroy');
+
+
+Route::get('/produits', [ProduitContoller::class,'listProduits'])->name('produits.get');
+
+Route::get('/details_produit/{id}', [ProduitContoller::class,'detailsProduit'])->name('produits.details');
+
 require __DIR__.'/auth.php';
