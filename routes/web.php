@@ -4,7 +4,6 @@ use App\Http\Controllers\ProduitContoller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PanierController;
-use Illuminate\Support\Facades\Auth;
 
 // Route::view('/', 'welcome');
 
