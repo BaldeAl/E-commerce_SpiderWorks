@@ -49,10 +49,11 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li><a href="index.html">Acceuil</a></li>
-              <li><a href="shop.html" class="active">Nos Produits</a></li>
+              <!-- <li><a href="shop.html" class="active">Nos Produits</a></li> -->
+              <li><a href="{{url('/produits')}}" class="active">Nos Produits</a></li>
               <li><a href="{{url('/login')}} ">Log In</a></li>
               <li><a href="{{url('/register')}} ">Sign In</a></li>
-              <li><a href="contact.html">Panier</a></li>
+              <li><a href="{{url('/paniers')}}">Panier</a></li>
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>

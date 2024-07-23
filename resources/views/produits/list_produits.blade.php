@@ -14,7 +14,7 @@
     <div class="container">
         <ul class="trending-filter">
             <li>
-                <a class="is_active" href="#!">ALL Games</a>
+                <a class="is_active" href="/">ALL Games</a>
             </li>
         </ul>
         <div class="row trending-box">

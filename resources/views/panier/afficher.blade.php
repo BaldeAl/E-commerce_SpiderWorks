@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h3>Your Card</h3>
-                <span class="breadcrumb"><a href="#">Home</a> > Our Shop</span>
+                <span class="breadcrumb"><a href="/">Home</a> > Our Shop</span>
             </div>
         </div>
     </div>

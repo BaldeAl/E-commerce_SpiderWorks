@@ -1,7 +1,7 @@
 <x-header></x-header>
 <h1>Page accueil</h1>
 
-//afficher liste des produits
+<!-- afficher liste des produits -->
 
 <div class="container">
     <div class="row">
