@@ -6,8 +6,10 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+<p align="center"><a href="https://github.com/BaldeAl/E-commerce_SpiderWorks" target="_blank"><img src="https://github.com/user-attachments/assets/07332814-d3ed-4100-ad25-eb8f79ef52d5" width="400" alt="Spiderworks Logo"></a></p>
 
 # Projet Boutique en ligne
+
 Le projet consiste à développer une boutique en ligne qui propose à la vente des jeux vidéo.
 ## Le projet se limitera aux fonctionnalités suivantes :
 ### 1. Le site contiendra une page d’accueil (contenue libre mais en rapport avec le sujet).
