@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProduitContoller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProduitsController;
 
@@ -21,3 +22,8 @@ Route::get('/accueil', function () {
 });
 
 require __DIR__.'/auth.php';
+
+//controller route
+Route::get('/produits', [ProduitContoller::class,'listProduits'])->name('produits.get');
+
+Route::get('/details_produit/{id}', [ProduitContoller::class,'detailsProduit'])->name('produits.details');
