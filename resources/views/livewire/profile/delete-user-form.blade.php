@@ -40,7 +40,7 @@ new class extends Component
     <x-modal name="confirm-user-deletion" :show="$errors->isNotEmpty()" focusable>
         <form wire:submit="deleteUser" class="p-6">
 
-            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+            <h2 class="text-lg font-medium text-bg-danger  dark:text-gray-100">
                 {{ __('Are you sure you want to delete your account?') }}
             </h2>
 

@@ -64,7 +64,7 @@ new class extends Component
 
 <section>
     <header>
-        <h2 class="h5 font-weight-bold text-dark">
+        <h2 class="h5 font-weight-bold ">
             {{ __('Profile Information') }}
         </h2>
 
@@ -117,4 +117,10 @@ new class extends Component
             @endif
         </div>
     </form>
+    <style>
+    label {
+        font-weight: bold !important;
+        color: black !important;
+    }
+    </style>
 </section>

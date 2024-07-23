@@ -9,7 +9,8 @@
         href="{{url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap')}}"
         rel="stylesheet">
 
-    <title>Lugx Gaming - Shop Page</title>
+    <title> Spiderworks Gaming - Shop Page</title>
+    <link rel="icon" href="{{url('assets/images/logo.png')}}" type="image/png" />
 
     <!-- Bootstrap core CSS -->
     <link href="{{url('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -21,13 +22,7 @@
     <link rel="stylesheet" href="{{url('assets/css/owl.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/animate.css')}}">
     <link rel="stylesheet" href="{{url('https://unpkg.com/swiper@7/swiper-bundle.min.css')}}" />
-    <!--
 
-TemplateMo 589 lugx gaming
-
-https://templatemo.com/tm-589-lugx-gaming
-
--->
 </head>
 
 <body>
