@@ -9,41 +9,14 @@
         </div>
     </div>
 </div>
-<div class="panel panel-body">
-    @if($panier && $panier->details->count() > 0)
-    <ul class="list-group mb-4">
-        @foreach($panier->details as $detail)
-        <li class="list-group-item d-flex justify-content-between align-items-center card">
-            <a href="{{url('/details_produit',$detail->produit->id)}}"><img
-                    src="{{'assets/images/'.$detail->produit->image}}" alt=""></a>
-            {{ $detail->produit->nom }} - {{ $detail->produit->prix }}€ x {{ $detail->qte_com }} <div>
-                <form action="{{ route('panier.details.update', $detail->id) }}" method="POST" class="d-inline">
-                    @csrf
-                    @method('PUT')
-                    <input type="number" name="qte_com" value="{{ $detail->qte_com }}" min="1" required>
-                    <button type="submit" class="btn btn-primary btn-sm">Mettre à jour</button>
-                </form>
-                <form action="{{ route('panier.details.destroy', $detail->id) }}" method="POST" class="d-inline">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                </form>
-            </div>
-        </li>
-        @endforeach
-    </ul>
-    <p><strong>Montant total: {{ $panier->montant }}€</strong></p>
-    @else
-    <p class="label label-danger">Votre panier est vide.</p>
-    @endif
-</div>
 <section class="h-100 gradient-custom">
     <div class="container py-5">
         <div class="row d-flex justify-content-center my-4">
+            @if($panier && $panier->details->count() > 0)
             <div class="col-md-8">
                 <div class="card mb-4">
                     <div class="card-header py-3">
-                        <h5 class="mb-0">Cart - 2 items</h5>
+                        <h5 class="mb-0">Cart - items</h5>
                     </div>
 
                     <div class="card-body">
@@ -54,7 +27,8 @@
                                 <!-- Image -->
                                 <div class="bg-image hover-overlay hover-zoom ripple rounded"
                                     data-mdb-ripple-color="light">
-                                    <img src="{{'assets/images/'.$detail->produit->image}}" alt="" class="w-100" />
+                                    <img src="{{'assets/images/'.$detail->produit->image}}" alt=""
+                                        class="w-100 rounded-3" />
                                     <a href="#!">
                                         <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
                                     </a>
@@ -72,7 +46,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" data-mdb-button-init data-mdb-ripple-init
-                                        class="btn btn-primary btn-sm me-1 mb-2" data-mdb-tooltip-init
+                                        class="btn btn-danger btn-sm me-1 mb-2" data-mdb-tooltip-init
                                         title="Remove item">
                                         <i class="fas fa-trash"></i>
                                     </button>
@@ -95,8 +69,7 @@
                                                 value="{{ $detail->qte_com }}" min="1" required>
                                         </div>
 
-                                        <button type="submit" class="btn btn-primary btn-sm"><i
-                                                class="fas fa-heart"></i></button>
+                                        <button type="submit" class="btn btn-primary btn-sm">Update</button>
                                     </div>
 
                                 </form>
@@ -120,24 +93,23 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <p><strong>Expected shipping delivery</strong></p>
-                        <p class="mb-0">12.10.2020 - 14.10.2020</p>
+                        <strong>{{ \Carbon\Carbon::now()->addDays(3)->format('d/m/Y') }}</strong>
+
+                        <p class="mb-0"></p>
                     </div>
                 </div>
                 <div class="card mb-4 mb-lg-0">
                     <div class="card-body">
                         <p><strong>We accept</strong></p>
-                        <img class="me-2" width="45px"
+                        <img class="me-2" style="width:45px"
                             src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/visa.svg"
                             alt="Visa" />
-                        <img class="me-2" width="45px"
+                        <img class="me-2" style="width:45px"
                             src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/amex.svg"
                             alt="American Express" />
-                        <img class="me-2" width="45px"
+                        <img class="me-2" style="width:45px"
                             src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce-gateway-stripe/assets/images/mastercard.svg"
                             alt="Mastercard" />
-                        <img class="me-2" width="45px"
-                            src="https://mdbcdn.b-cdn.net/wp-content/plugins/woocommerce/includes/gateways/paypal/assets/images/paypal.webp"
-                            alt="PayPal acceptance mark" />
                     </div>
                 </div>
             </div>
@@ -176,6 +148,9 @@
                     </div>
                 </div>
             </div>
+            @else
+            <p class="label label-danger">Votre panier est vide.</p>
+            @endif
         </div>
     </div>
 </section>
