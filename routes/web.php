@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PanierController;
 use Illuminate\Support\Facades\Auth;
 
-Route::view('/', 'welcome');
+// Route::view('/', 'welcome');
+
+//add function to get allproduc in route / welcome
+Route::get('/', [ProduitContoller::class,'welcome'])->name('welcome');
 
 
 
