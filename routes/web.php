@@ -2,28 +2,39 @@
 
 use App\Http\Controllers\ProduitContoller;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProduitsController;
+use App\Http\Controllers\PanierController;
 
 Route::view('/', 'welcome');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-// Route::view('accueil', './views/accueil')->name('accueil');
-// Route::get('/produits', [ProduitsController::class, 'listeProduits'])->name('produits');
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+
 
 Route::get('/accueil', function () {
-    return view('components.accueil');
-});
+    $produits = App\Models\Produit::all();
+    return view('components.accueil', ['produits' => $produits]);
+})->name('acceuil.test');
 
-require __DIR__.'/auth.php';
+//panier routes
+Route::post('/paniers/ajouter/{produit}', [PanierController::class, 'ajouterAuPanier'])->name('panier.ajouter');
+Route::get('/paniers', [PanierController::class, 'afficherPanier'])->name('panier.afficher');
+Route::put('/paniers/details/{detail}', [PanierController::class, 'mettreAJourDetailPanier'])->name('panier.details.update');
+Route::delete('/paniers/details/{detail}', [PanierController::class, 'supprimerDetailPanier'])->name('panier.details.destroy');
 
-//controller route
+
 Route::get('/produits', [ProduitContoller::class,'listProduits'])->name('produits.get');
+Route::get('/', [ProduitContoller::class,'listProduits'])
+->middleware(['auth', 'verified'])
+->name('dashboard');
 
 Route::get('/details_produit/{id}', [ProduitContoller::class,'detailsProduit'])->name('produits.details');
+
+require __DIR__.'/auth.php';

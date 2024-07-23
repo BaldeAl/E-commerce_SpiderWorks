@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Produit extends Model
 {
     use HasFactory;
-    protected $table = 'produit';
 
+    protected $table = "produit";
     protected $fillable = [
         'id',
         'nom',
