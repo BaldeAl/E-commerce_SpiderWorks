@@ -20,7 +20,7 @@
                       <!-- ***** Logo End ***** -->
                       <!-- ***** Menu Start ***** -->
                       <ul class="nav">
-                          <li><a href="{{url('/produits')}}">Acceuil</a></li>
+                          <li><a href="{{url('/produits')}}">Accueil</a></li>
                           <li><a href="{{url('/produits')}}" class="active">Nos Produits</a></li>
                           @if(!Auth::check())
                           <li><a href="{{url('/login')}} ">Log In</a></li>
