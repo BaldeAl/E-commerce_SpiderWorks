@@ -15,10 +15,16 @@ class PanierController extends Controller
     {
         // Vérifie si l'utilisateur est authentifié
         if (Auth::check()) {
-            $panier = Panier::where('user_id', Auth::id())->firstOrCreate([
-                'user_id' => Auth::id()
-            ]);
 
+$user_id = Auth::id();
+    $panier = Panier::where('user_id', $user_id)->first();
+
+    if (!$panier) {
+        $panier = Panier::create([
+            'user_id' => $user_id,
+            'montant' => 0
+        ]);
+    }
         } else {
             $panierId = Session::get('panier_id');
             if ($panierId) {

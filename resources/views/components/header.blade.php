@@ -51,7 +51,7 @@
                           <li>
 
                               <a href="{{route('profile')}}">
-                                  {{ auth()->user()->name }} {{ __('Profile') }}
+                                  {{ auth()->user()->name }} <i class="fa fa-user"></i>
                               </a>
                           </li>
 
