@@ -35,7 +35,7 @@
             </div>
             @endforeach
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-12">
                 <ul class="pagination">
                     <li><a href="#"> &lt; </a></li>
@@ -45,7 +45,7 @@
                     <li><a href="#"> &gt; </a></li>
                 </ul>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 <x-footer></x-footer>

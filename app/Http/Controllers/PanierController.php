@@ -15,10 +15,16 @@ class PanierController extends Controller
     {
         // Vérifie si l'utilisateur est authentifié
         if (Auth::check()) {
-            $panier = Panier::where('user_id', Auth::id())->firstOrCreate([
-                'user_id' => Auth::id(),
-                'montant' => 0
-            ]);
+
+$user_id = Auth::id();
+    $panier = Panier::where('user_id', $user_id)->first();
+
+    if (!$panier) {
+        $panier = Panier::create([
+            'user_id' => $user_id,
+            'montant' => 0
+        ]);
+    }
         } else {
             $panierId = Session::get('panier_id');
             if ($panierId) {
@@ -34,7 +40,7 @@ class PanierController extends Controller
             ['qte_com' => 1]
         );
 
-        $panier->montant += $produit->prix * $request->qte_com;
+        $panier->montant += $produit->prix * 1;
         $panier->save();
 
         return redirect()->route('produits.get')->with('success', 'Produit ajouté au panier');

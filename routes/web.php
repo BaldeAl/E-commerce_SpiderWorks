@@ -4,8 +4,12 @@ use App\Http\Controllers\ProduitContoller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PanierController;
+use Illuminate\Support\Facades\Auth;
 
-Route::view('/', 'welcome');
+// Route::view('/', 'welcome');
+
+//add function to get allproduc in route / welcome
+Route::get('/', [ProduitContoller::class,'welcome'])->name('welcome');
 
 
 
@@ -15,7 +19,7 @@ Route::view('profile', 'profile')
 
 Route::post('/logout', function () {
     Auth::logout();
-    return redirect('/login');
+    return redirect('/produits');
 })->name('logout');
 
 
@@ -32,7 +36,10 @@ Route::delete('/paniers/details/{detail}', [PanierController::class, 'supprimerD
 
 
 Route::get('/produits', [ProduitContoller::class,'listProduits'])->name('produits.get');
-Route::get('/', [ProduitContoller::class,'listProduits'])
+
+
+
+Route::get('/welcome', [ProduitContoller::class,'listProduits'])
 ->middleware(['auth', 'verified'])
 ->name('dashboard');
 
