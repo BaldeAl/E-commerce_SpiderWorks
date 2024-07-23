@@ -58,7 +58,7 @@
                           <li>
                               <form method="POST" action="{{ route('logout') }}">
                                   @csrf
-                                  <button type="submit"><a>{{ __('Log Out') }}</a> </button>
+                                  <a href="#" onclick="this.closest('form').submit()">{{ __('Log Out') }}</a>
                               </form>
 
                           </li>

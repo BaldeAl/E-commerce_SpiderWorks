@@ -34,9 +34,10 @@ Route::delete('/paniers/details/{detail}', [PanierController::class, 'supprimerD
 Route::get('/produits', [ProduitContoller::class,'listProduits'])->name('produits.get');
 
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+
+Route::get('/welcome', [ProduitContoller::class,'listProduits'])
+->middleware(['auth', 'verified'])
+->name('dashboard');
 
 Route::get('/details_produit/{id}', [ProduitContoller::class,'detailsProduit'])->name('produits.details');
 
